@@ -15,7 +15,7 @@ function App() {
       }).catch(error => alert('yanlış'));
   }, []);
   const handleChange = e => {
-    setSearch(e.target.volume)
+    setSearch(e.target.value)
   }
   const filteredCoins = coins.filter(coin =>
     coin.name.toLowerCase().includes(search.toLowerCase())
@@ -35,8 +35,11 @@ function App() {
           name={coin.name} 
           image={coin.image} 
           Symbol={coin.Symbol}
-          volume={coin.market_cap}
-          price={coin.current_price} />
+          marketcap={coin.market_cap}
+          price={coin.current_price} 
+          priceChange={coin.price_change_percentage_24h}
+          volume={coin.total_volume}
+          />
           );
 })}
     </div>
